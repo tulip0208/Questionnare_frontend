@@ -70,3 +70,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.h-full.overflow-y-auto.overflow-x-hidden.bg-gray-50{
+  border-radius: 0;
+}
+.navbar.bg-stone-200.px-2{
+  padding-left: 50px;
+  padding-right: 50px;
+}

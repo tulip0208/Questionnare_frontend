@@ -1,48 +1,51 @@
-
 'use client';
+import axios from 'axios';
+import { useSelector, } from 'react-redux'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
-import { Sidebar } from 'flowbite-react';
-import { BiBuoy } from 'react-icons/bi';
-import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import Home from './pages/home.jsx'
+import ManageStore from './pages/managestore.jsx';
+import ReviewPage from './pages/reviewpage.jsx';
+import Profile from './pages/profile.jsx';
+import Login from './pages/login.jsx'
+import Questionnaire from './pages/questionnaire.jsx'
+import { getUser } from './features/userSlice.js';
+import store from './store'
+
+const data = [{
+  id: 1,
+  name: "aaaaa",
+}, {
+  id: 2,
+  name: "bbbbb",
+}, {
+  id: 3,
+  name: "cccccc",
+}
+]
+
+const TOKEN = localStorage.getItem("token");
+if (TOKEN) {
+  axios.defaults.headers.common["Authorization"] = `${TOKEN}`;
+  store.dispatch(getUser())
+}
 
 function App() {
+  const { user } = useSelector((store) => store.user);
+
   return (
-    <Navbar fluid rounded>
-      <Navbar.Brand href="https://flowbite-react.com">
-        <img src="./public/vite.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
-      </Navbar.Brand>
-      <div className="flex md:order-2">
-        <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
-          }
-        >
-          <Dropdown.Header>
-            <span className="block text-sm">Bonnie Green</span>
-            <span className="block truncate text-sm font-medium">name@flowbite.com</span>
-          </Dropdown.Header>
-          <Dropdown.Item>Dashboard</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
-        </Dropdown>
-        <Navbar.Toggle />
-      </div>
-      <Navbar.Collapse>
-        <Navbar.Link href="#" active>
-          Home
-        </Navbar.Link>
-        <Navbar.Link href="#">About</Navbar.Link>
-        <Navbar.Link href="#">Services</Navbar.Link>
-        <Navbar.Link href="#">Pricing</Navbar.Link>
-        <Navbar.Link href="#">Contact</Navbar.Link>
-      </Navbar.Collapse>
-    </Navbar>
+    <Router>
+      <Routes>
+        {data.map(item => {
+          <Route id={item.id} path={"/questionnaire?name=" + item.name} element={<Questionnaire />} />
+        })}
+        <Route path="/login" element={<Login />} />
+        {user && <Route path="/home" element={<Home />} />}
+        {user && <Route path="/managestore" element={<ManageStore />} />}
+        {user && <Route path="/reviewpage" element={<ReviewPage />} />}
+        {user && <Route path="/profile" element={<Profile />} />}
+      </Routes>
+    </Router>
   );
 }
 
