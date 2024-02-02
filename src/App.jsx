@@ -43,6 +43,7 @@ function App() {
         {user && <Route path="/home" element={<Home />} />}
         {user && <Route path="/managestore" element={<ManageStore />} />}
         {user && <Route path="/reviewpage" element={<ReviewPage />} />}
+        {user && <Route path="/graph" element={<ReviewPage />} />}
         {user && <Route path="/profile" element={<Profile />} />}
       </Routes>
     </Router>

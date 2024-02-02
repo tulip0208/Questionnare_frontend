@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import config from "../app/config";
 
-const server_url = "http://localhost:8080";
+const server_url = config.server_url;
 
 export const signin = createAsyncThunk("/login", async (payload) => {
   try {
