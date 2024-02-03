@@ -1,10 +1,13 @@
-import React from "react";
+
 
 function Questionnaire() {
   return (
-    <h1>
-        questionnaire
-    </h1>
+    <main>
+      <header>
+        <h1>店舗評価アンケート</h1>
+      </header>
+
+    </main>
   );
 }
 

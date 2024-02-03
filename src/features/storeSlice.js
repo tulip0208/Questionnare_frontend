@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import config from "../app/config";
+import lang from "../lang/lang";
 
 const server_url = config.server_url;
 
@@ -13,7 +14,7 @@ export const createOrUpdate = createAsyncThunk(
   "/create_or_update",
   async (payload) => {
     const response = await axios.post(`${server_url}/store/create_or_update`, payload);
-    return response.data;        
+    return response.data;
   }
 );
 
@@ -50,23 +51,27 @@ export const storeSlice = createSlice({
         state.isLoading = false;
     },
     [view.rejected]: (state, error) => {
-      state.error = error.error.message;
+      state.status = lang("en", "failed")
       state.isLoading = false;
     },
 
     [createOrUpdate.pending]: (state, { payload }) => {
       state.isLoading = true;
+      state.status = ""
     },
     [createOrUpdate.fulfilled]: (state, { payload }) => {
+      console.log(payload.message)
       state.status = payload.message
       state.isLoading = false;
     },
     [createOrUpdate.rejected]: (state, error) => {
-      state.error = error.error.message;
+      console.log(error)
+      state.status = lang("en", "failed")
       state.isLoading = false;
     },
 
     [deleteStore.pending]: (state) => {
+      state.status = ""
       state.isLoading = true;
     },
     [deleteStore.fulfilled]: (state, { payload }) => {
@@ -74,7 +79,7 @@ export const storeSlice = createSlice({
       state.isLoading = false;
     },
     [deleteStore.rejected]: (state, error) => {
-      state.error = error.error.message;
+      state.status = lang("en", "failed")
       state.isLoading = false;
     },
   },
