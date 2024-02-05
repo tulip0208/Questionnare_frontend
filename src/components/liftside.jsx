@@ -21,7 +21,6 @@ function LiftSide() {
     <Sidebar className='h-screen rounded-none basis-1/7 px-6 py-6 bg-gray-50 dark:bg-gray-600'>
       <Sidebar.Items className='pt-5 dark:bg-gray-800'>
         <Sidebar.ItemGroup>
-          {/* <Label className='text-xl'>業務</Label> */}
           <Sidebar.ItemGroup>
             <Sidebar.Item href="/managestore" icon={BiTask}>
               店舗管理
@@ -33,8 +32,7 @@ function LiftSide() {
               グラフ表示
             </Sidebar.Item>
           </Sidebar.ItemGroup>
-          {/* <Label className='text-xl mt-10'>ユーザー管理</Label> */}
-          <Sidebar.ItemGroup>
+          <Sidebar.ItemGroup className='!mt-0'>
             <Sidebar.Item href="/profile" icon={BiUser}>
               プロフィール
             </Sidebar.Item>

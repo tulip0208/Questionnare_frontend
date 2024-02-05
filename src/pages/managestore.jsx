@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { HiEye, HiOutlineCheck, HiOutlineXCircle } from 'react-icons/hi';
+import { HiOutlineCheck, HiOutlineXCircle } from 'react-icons/hi';
 import { Flowbite, Table, Button, FloatingLabel , Label, TextInput, Alert } from 'flowbite-react';
 
 import { view, createOrUpdate, deleteStore, resetError, resetStatus } from '../features/storeSlice'
@@ -37,6 +37,7 @@ function ManageStore() {
 
   const dispatch = useDispatch()
 
+  const [store_id, setStoreId] = useState(-1)
   const [store_name, setStoreName] = useState("")
   const [store_business_url, setStoreBusinessURL] = useState("")
   const [store_url_name, setStoreURLName] = useState("")
@@ -51,10 +52,18 @@ function ManageStore() {
     dispatch(view())
   }, [status])
 
-  function edit(store_name1, store_url_name, store_business_url1) {
+  const edit = (store_id1, store_name1, store_url_name1, store_business_url1) => {
+    setStoreId(store_id1)
     setStoreName(store_name1)
-    setStoreURLName(store_url_name)
+    setStoreURLName(store_url_name1)
     setStoreBusinessURL(store_business_url1)
+  }
+
+  const initializeState = () => {
+    setStoreId(-1)
+    setStoreName("")
+    setStoreURLName("")
+    setStoreBusinessURL("")
   }
 
   function getStatus() {
@@ -99,11 +108,13 @@ function ManageStore() {
           <div className="py-10 flex flex-col">
             <div className="px-8 py-6 dark:bg-gray-800">
               <div className="flex flex-row gap-4 items-center">
+                { store_id !== -1 && <FloatingLabel className="w-10" variant="outlined" label="id" value={store_id} readOnly/> }
                 <FloatingLabel variant="outlined" label="店舗名" value={store_name} onChange={e => setStoreName(e.target.value)} />
                 <FloatingLabel variant="outlined" label="URLの名前" value={store_url_name} onChange={e => setStoreURLName(e.target.value)} />
-                <FloatingLabel className="w-80" variant="outlined" label="店舗Googleビジネスurl" value={store_business_url} onChange={e => setStoreBusinessURL(e.target.value)} />
-                <FloatingLabel className="w-80" variant="outlined" label="調査調査url" value={(store_name !== "" && store_business_url !== "") ? `${config.server_url}/questionnaire?name=${store_url_name}` : ""} readOnly/>
-                <Button type="button" onClick={() => { dispatch(createOrUpdate({ store_name, store_url_name, store_business_url })) }}>登録 / 変更</Button>
+                <FloatingLabel className="w-72" variant="outlined" label="店舗Googleビジネスurl" value={store_business_url} onChange={e => setStoreBusinessURL(e.target.value)} />
+                <FloatingLabel className="w-72" variant="outlined" label="調査調査url" value={(store_name !== "" && store_business_url !== "") ? `${config.server_url}/questionnaire?name=${store_url_name}` : ""} readOnly/>
+                <Button type="button" onClick={() => { initializeState() }}>リセット</Button>
+                <Button type="button" onClick={() => { dispatch(createOrUpdate({ store_id, store_name, store_url_name, store_business_url })) }}>登録 / 変更</Button>
               </div>
             </div>
             <div className="overflow-x-auto pt-10 rounded-none">
@@ -133,11 +144,14 @@ function ManageStore() {
                         <Table.Cell>{item.store_business_url}</Table.Cell>
                         <Table.Cell>{item.questionnare_url}</Table.Cell>
                         <Table.Cell className="flex flex-row">
-                          <a href="#" onClick={() => edit(item.store_name, item.store_url_name, item.store_business_url)} className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                          <a href="#" onClick={() => edit(item.id, item.store_name, item.store_url_name, item.store_business_url)} className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
                             Edit
                           </a>
-                          <a href="#" onClick={() => dispatch(deleteStore({ store_name: item.store_name }))} className="ml-3 font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                          <a href="#" onClick={() => dispatch(deleteStore({ store_id: item.id }))} className="ml-3 font-medium text-cyan-600 hover:underline dark:text-cyan-500">
                             Delete
+                          </a>
+                          <a target="_blank" href={item.questionnare_url} className="ml-3 font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                            Run
                           </a>
                         </Table.Cell>
                       </Table.Row>

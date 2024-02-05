@@ -81,3 +81,6 @@ button:focus-visible {
 .vw-75{
   width: 75vw;
 }
+.h-full.overflow-y-auto.overflow-x-hidden.rounded.bg-gray-50.py-4.px-3{
+  padding: 0;
+}

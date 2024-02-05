@@ -12,18 +12,6 @@ import Questionnaire from './pages/questionnaire.jsx'
 import { getUser } from './features/userSlice.js';
 import store from './store'
 
-const data = [{
-  id: 1,
-  name: "aaaaa",
-}, {
-  id: 2,
-  name: "bbbbb",
-}, {
-  id: 3,
-  name: "cccccc",
-}
-]
-
 const TOKEN = localStorage.getItem("token");
 if (TOKEN) {
   axios.defaults.headers.common["Authorization"] = `${TOKEN}`;
@@ -36,9 +24,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {data.map(item => {
-          <Route id={item.id} path={"/questionnaire?name=" + item.name} element={<Questionnaire />} />
-        })}
+        <Route path="/questionnaire" element={<Questionnaire />} />
         <Route path="/login" element={<Login />} />
         {user && <Route path="/home" element={<Home />} />}
         {user && <Route path="/managestore" element={<ManageStore />} />}
