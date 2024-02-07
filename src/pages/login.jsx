@@ -22,7 +22,7 @@ function Login() {
     }, [])
     useEffect(() => {
         if (user) {
-            navigate('/home', { replace: true });
+            navigate('/managestore', { replace: true });
         }
     }, [user]);
     useEffect(() => {
@@ -46,7 +46,7 @@ function Login() {
                 <div className="mb-2 block">
                     <Label htmlFor="name" value="メールアドレス" />
                 </div>
-                <TextInput id="name1" type="name" placeholder="メールアドレスを入力" onChange={e => setUsername(e.target.value)} required />
+                <TextInput id="name1" type="email" placeholder="メールアドレスを入力" onChange={e => setUsername(e.target.value)} required />
             </div>
             <div>
                 <div className="mb-2 block">

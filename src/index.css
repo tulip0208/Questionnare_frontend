@@ -75,12 +75,64 @@ button:focus-visible {
   border-radius: 0;
 }
 .navbar.bg-stone-200.px-2{
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 175px;
+  padding-right: 175px;
+  min-width: 1600px;
+  width: 100%;
 }
 .vw-75{
   width: 75vw;
 }
+.height-700{
+  height: 800px;
+}
 .h-full.overflow-y-auto.overflow-x-hidden.rounded.bg-gray-50.py-4.px-3{
   padding: 0;
+}
+.condition2_2 .block.w-full.border.bg-gray-50.border-gray-300.text-gray-900.text-sm.rounded-lg{
+  padding: 0.35rem 1.25rem 0.35rem 0.35rem;
+  width: 4rem;
+}
+.condition2_3 .block.w-full.border.bg-gray-50.border-gray-300.text-gray-900.text-sm.rounded-lg{
+  padding: 0.35rem 1.25rem 0.35rem 0.35rem;
+  width: 8rem;
+}
+.text-3xl>div>input, button.text-3xl>span{
+  font-size: 1.275rem;
+}
+div.text-3xl.width-50-rem{
+  width: 30rem;
+}
+.condition2_1.h-12, .condition2_2.h-12, .condition2_3.h-12{
+  height: 2.5rem;
+}
+.condition2.flex.flex-row.border.border-gray-300.rounded.items-center{
+  width: 39rem;
+}
+.happy.py-1.rounded.text-white{
+  font-size: 0.775em;
+}
+.width-900{
+  width: 1400px !important;
+}
+.width-160{
+  width: 10rem;
+  /* width: 160px !important; */
+}
+.width-100{
+  width: 100px !important;
+}
+.width-60{
+  width: 60px !important;
+}
+.width-70{
+  width: 70px !important;
+}
+.width-80{
+  width: 80px !important;
+}
+.width-1200{
+  min-width: 1600px;
+  max-width: 1600px;
+  width: 1600px !important;
 }

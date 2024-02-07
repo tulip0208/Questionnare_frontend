@@ -27,10 +27,10 @@ function Home() {
   return (
     <Flowbite theme={{ theme: customTheme }}>
       <Header></Header>
-      <main className="flex flex-row">
+      <main className="flex flex-row width-1200 mx-auto my-0">
         <LiftSide></LiftSide>
-        <div className="basis-6/7 px-10 py-12">
-          <h1>home</h1>
+        <div className="basis-6/7 px-10 py-12 grow">
+          <h1>MEO</h1>
         </div>
       </main>
     </Flowbite>

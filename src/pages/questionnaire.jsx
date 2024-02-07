@@ -172,7 +172,8 @@ function Questionnaire() {
 
       cure: questionStatus.Q6_2.answer,
       waiter: questionStatus.Q7.answer,
-      pointer: questionStatus.Q8.answer,
+      technical: questionStatus.Q8.answer,
+      pointer: questionStatus.Q9.answer,
 
       store_name,
       store_business_url,
@@ -372,23 +373,23 @@ function Questionnaire() {
               </div>
               <div className="flex flex-row items-center justify-start mt-1">
                 <input name="doctor_age" value={2} checked={questionStatus.Q5.answer === "2"} onChange={(event) => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2(event.target.value, "Q5", "Q6_1") : changeQuestionStatus2(event.target.value, "Q5", "Q6_2") }} className='mr-3 enabled:hover:border-gray-400 appearance-none checked:bg-gray-500 w-5 h-5 checked:bg-[length:1.5em_1.5em] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-gray-500' type="radio" />
-                <label onClick={() => { questionStatus.Q1.answer === "2" ? changeQuestionStatus2("1", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>２０代</label>
+                <label onClick={() => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2("2", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>２０代</label>
               </div>
               <div className="flex flex-row items-center justify-start mt-1">
                 <input name="doctor_age" value={3} checked={questionStatus.Q5.answer === "3"} onChange={(event) => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2(event.target.value, "Q5", "Q6_1") : changeQuestionStatus2(event.target.value, "Q5", "Q6_2") }} className='mr-3 enabled:hover:border-gray-400 appearance-none checked:bg-gray-500 w-5 h-5 checked:bg-[length:1.5em_1.5em] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-gray-500' type="radio" />
-                <label onClick={() => { questionStatus.Q1.answer === "3" ? changeQuestionStatus2("1", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>３０代</label>
+                <label onClick={() => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2("3", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>３０代</label>
               </div>
               <div className="flex flex-row items-center justify-start mt-1">
                 <input name="doctor_age" value={4} checked={questionStatus.Q5.answer === "4"} onChange={(event) => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2(event.target.value, "Q5", "Q6_1") : changeQuestionStatus2(event.target.value, "Q5", "Q6_2") }} className='mr-3 enabled:hover:border-gray-400 appearance-none checked:bg-gray-500 w-5 h-5 checked:bg-[length:1.5em_1.5em] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-gray-500' type="radio" />
-                <label onClick={() => { questionStatus.Q1.answer === "4" ? changeQuestionStatus2("1", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>４０代</label>
+                <label onClick={() => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2("4", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>４０代</label>
               </div>
               <div className="flex flex-row items-center justify-start mt-1">
                 <input name="doctor_age" value={5} checked={questionStatus.Q5.answer === "5"} onChange={(event) => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2(event.target.value, "Q5", "Q6_1") : changeQuestionStatus2(event.target.value, "Q5", "Q6_2") }} className='mr-3 enabled:hover:border-gray-400 appearance-none checked:bg-gray-500 w-5 h-5 checked:bg-[length:1.5em_1.5em] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-gray-500' type="radio" />
-                <label onClick={() => { questionStatus.Q1.answer === "5" ? changeQuestionStatus2("1", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>５０代</label>
+                <label onClick={() => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2("5", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>５０代</label>
               </div>
               <div className="flex flex-row items-center justify-start mt-1">
                 <input name="doctor_age" value={6} checked={questionStatus.Q5.answer === "6"} onChange={(event) => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2(event.target.value, "Q5", "Q6_1") : changeQuestionStatus2(event.target.value, "Q5", "Q6_2") }} className='mr-3 enabled:hover:border-gray-400 appearance-none checked:bg-gray-500 w-5 h-5 checked:bg-[length:1.5em_1.5em] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-gray-500' type="radio" />
-                <label onClick={() => { questionStatus.Q1.answer === "6" ? changeQuestionStatus2("1", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>６０代以上</label>
+                <label onClick={() => { questionStatus.Q1.answer === "1" ? changeQuestionStatus2("6", "Q5", "Q6_1") : changeQuestionStatus2("1", "Q5", "Q6_2") }} className={questionStatus.Q5.error === 0 ? 'text-base font-medium' : 'text-base font-medium text-red-500'}>６０代以上</label>
               </div>
             </div>
           </div>

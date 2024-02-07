@@ -20,14 +20,14 @@ function Header() {
   }
 
   return (
-    <Navbar fluid className='navbar bg-stone-200'>
-      <Navbar.Brand href="#">
+    <Navbar fluid className='navbar bg-stone-200 px-2'>
+      <Navbar.Brand href="/managestore">
         <img src="./public/vite.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">MEO</span>
       </Navbar.Brand>
-      <div className="flex md:order-2 items-center">
+      <div className="flex items-center">
 
-        <Dropdown
+        {/* <Dropdown
           className='px-0 py-0'
           arrowIcon={false}
           inline
@@ -38,14 +38,14 @@ function Header() {
             </div>
           }
         >
-          {/* <Dropdown.Header>
+          <Dropdown.Header>
             <span className="block text-sm">{user.username}</span>
             <span className="block truncate text-sm font-medium">{ }</span>
           </Dropdown.Header>
           <Dropdown.Item>プロフィール設定</Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item onClick={logout}>退会</Dropdown.Item> */}
-        </Dropdown>
+          <Dropdown.Item onClick={logout}>退会</Dropdown.Item>
+        </Dropdown> */}
 
         <Dropdown
           arrowIcon={false}
@@ -59,7 +59,7 @@ function Header() {
             <span className="block text-sm">{user.username}</span>
             <span className="block truncate text-sm font-medium">{ }</span>
           </Dropdown.Header>
-          <Dropdown.Item>プロフィール設定</Dropdown.Item>
+          <Dropdown.Item onClick={ () => { navaigate('/profile') }}>プロフィール設定</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item onClick={logout}>退会</Dropdown.Item>
         </Dropdown>
