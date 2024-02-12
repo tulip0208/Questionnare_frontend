@@ -117,12 +117,12 @@ function ManageStore() {
                 <FloatingLabel variant="outlined" label="URLの名前" value={store_url_name} onChange={e => setStoreURLName(e.target.value)} />
                 <FloatingLabel className="w-72" variant="outlined" label="店舗Googleビジネスurl" value={store_business_url} onChange={e => setStoreBusinessURL(e.target.value)} />
                 <FloatingLabel className="w-72" variant="outlined" label="調査調査url" value={(store_name !== "" && store_business_url !== "") ? `${config.server_url}/questionnaire?name=${store_url_name}` : ""} readOnly />
-                <Button type="button" onClick={() => { dispatch(createOrUpdate({ store_id: -1, store_name, store_url_name, store_business_url })) }}>登録</Button>
+                <Button className="-mt-2" type="button" onClick={() => { dispatch(createOrUpdate({ store_id: -1, store_name, store_url_name, store_business_url })) }}>登録</Button>
               </div>
             </div>
-            <div className="overflow-x-auto   rounded-none">
+            <div className="overflow-x-auto w-full  rounded-none">
 
-              <table className="mt-2 ml-5 border-collapse	">
+              <table className="mt-2 ml-5 border-collapse	w-11/12">
                 <thead>
                   <tr className="border border-slate-300 border-l-0 border-r-0">
                     <th className="text-sm px-1 py-4">ID</th>
@@ -140,7 +140,7 @@ function ManageStore() {
                         <td className="px-2 py-3 text-sm " colSpan={10}>{lang("japan", "no_data")}</td>
                       </tr>
                       : store.map(item => (
-                        <tr key={item.id} className="border  cursor-pointer border-slate-300 border-l-0 border-r-0">
+                        <tr key={item.id} className="border  border-slate-300 border-l-0 border-r-0">
                           <td className="px-2 py-2 text-sm ">{item.id}</td>
                           <td className="px-2 py-2 text-sm">{item.store_name}</td>
                           <td className="px-2 py-2 text-sm break-all">{item.store_url_name}</td>

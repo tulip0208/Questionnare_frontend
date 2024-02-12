@@ -25,6 +25,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/' element={ !user ? <Login /> : <ManageStore /> } />
         <Route path="/questionnaire" element={<Questionnaire />} />
         <Route path="/login" element={<Login />} />
         {user && <Route path="/home" element={<Home />} />}
