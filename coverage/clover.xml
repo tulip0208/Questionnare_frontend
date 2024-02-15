@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1707956655183" clover="3.2.0">
+  <project timestamp="1707956655183" name="All files">
+    <metrics statements="458" coveredstatements="28" conditionals="281" coveredconditionals="2" methods="241" coveredmethods="6" elements="980" coveredelements="36" complexity="0" loc="458" ncloc="458" packages="7" files="17" classes="17"/>
+    <package name="src">
+      <metrics statements="5" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="App.jsx" path="D:\CW projcet\survey\frontend\src\App.jsx">
+        <metrics statements="5" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="config.js" path="D:\CW projcet\survey\frontend\src\app\config.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="19" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="header.jsx" path="D:\CW projcet\survey\frontend\src\components\header.jsx">
+        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+      </file>
+      <file name="liftside.jsx" path="D:\CW projcet\survey\frontend\src\components\liftside.jsx">
+        <metrics statements="13" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features">
+      <metrics statements="76" coveredstatements="13" conditionals="6" coveredconditionals="2" methods="26" coveredmethods="1"/>
+      <file name="storeSlice.js" path="D:\CW projcet\survey\frontend\src\features\storeSlice.js">
+        <metrics statements="33" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+      </file>
+      <file name="userSlice.js" path="D:\CW projcet\survey\frontend\src\features\userSlice.js">
+        <metrics statements="43" coveredstatements="13" conditionals="6" coveredconditionals="2" methods="12" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="78" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.lang">
+      <metrics statements="10" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="en.js" path="D:\CW projcet\survey\frontend\src\lang\en.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+      <file name="japan.js" path="D:\CW projcet\survey\frontend\src\lang\japan.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+      <file name="lang.js" path="D:\CW projcet\survey\frontend\src\lang\lang.js">
+        <metrics statements="8" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+    </package>
+    <package name="src.pages">
+      <metrics statements="346" coveredstatements="14" conditionals="254" coveredconditionals="0" methods="204" coveredmethods="5"/>
+      <file name="graph.jsx" path="D:\CW projcet\survey\frontend\src\pages\graph.jsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+      </file>
+      <file name="home.jsx" path="D:\CW projcet\survey\frontend\src\pages\home.jsx">
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="login.jsx" path="D:\CW projcet\survey\frontend\src\pages\login.jsx">
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+      </file>
+      <file name="managestore.jsx" path="D:\CW projcet\survey\frontend\src\pages\managestore.jsx">
+        <metrics statements="46" coveredstatements="0" conditionals="15" coveredconditionals="0" methods="25" coveredmethods="0"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="82" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="89" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="96" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="156" count="0" type="stmt"/>
+        <line num="175" count="0" type="stmt"/>
+        <line num="181" count="0" type="stmt"/>
+        <line num="185" count="0" type="stmt"/>
+        <line num="189" count="0" type="stmt"/>
+        <line num="193" count="0" type="stmt"/>
+        <line num="198" count="0" type="stmt"/>
+        <line num="199" count="0" type="stmt"/>
+      </file>
+      <file name="profile.jsx" path="D:\CW projcet\survey\frontend\src\pages\profile.jsx">
+        <metrics statements="25" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="14" coveredmethods="0"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="77" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="99" count="0" type="stmt"/>
+      </file>
+      <file name="questionnaire.jsx" path="D:\CW projcet\survey\frontend\src\pages\questionnaire.jsx">
+        <metrics statements="142" coveredstatements="0" conditionals="137" coveredconditionals="0" methods="123" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="139" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="163" count="0" type="stmt"/>
+        <line num="164" count="0" type="stmt"/>
+        <line num="183" count="0" type="stmt"/>
+        <line num="185" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="186" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="187" count="0" type="stmt"/>
+        <line num="188" count="0" type="stmt"/>
+        <line num="189" count="0" type="stmt"/>
+        <line num="194" count="0" type="stmt"/>
+        <line num="198" count="0" type="stmt"/>
+        <line num="200" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="225" count="0" type="stmt"/>
+        <line num="226" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="229" count="0" type="stmt"/>
+        <line num="230" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="235" count="0" type="stmt"/>
+        <line num="255" count="0" type="stmt"/>
+        <line num="256" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="259" count="0" type="stmt"/>
+        <line num="260" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="263" count="0" type="stmt"/>
+        <line num="264" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="267" count="0" type="stmt"/>
+        <line num="268" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="273" count="0" type="stmt"/>
+        <line num="274" count="0" type="stmt"/>
+        <line num="294" count="0" type="stmt"/>
+        <line num="295" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="298" count="0" type="stmt"/>
+        <line num="299" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="302" count="0" type="stmt"/>
+        <line num="303" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="306" count="0" type="stmt"/>
+        <line num="307" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="310" count="0" type="stmt"/>
+        <line num="311" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="314" count="0" type="stmt"/>
+        <line num="315" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="320" count="0" type="stmt"/>
+        <line num="321" count="0" type="stmt"/>
+        <line num="342" count="0" type="stmt"/>
+        <line num="343" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="346" count="0" type="stmt"/>
+        <line num="347" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="352" count="0" type="stmt"/>
+        <line num="353" count="0" type="stmt"/>
+        <line num="375" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="376" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="379" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="380" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="383" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="384" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="387" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="388" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="391" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="392" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="395" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="396" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="401" count="0" type="stmt"/>
+        <line num="402" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="424" count="0" type="stmt"/>
+        <line num="425" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="428" count="0" type="stmt"/>
+        <line num="429" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="432" count="0" type="stmt"/>
+        <line num="433" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="436" count="0" type="stmt"/>
+        <line num="437" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="440" count="0" type="stmt"/>
+        <line num="441" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="444" count="0" type="stmt"/>
+        <line num="445" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="448" count="0" type="stmt"/>
+        <line num="449" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="452" count="0" type="stmt"/>
+        <line num="453" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="456" count="0" type="stmt"/>
+        <line num="457" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="460" count="0" type="stmt"/>
+        <line num="461" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="466" count="0" type="stmt"/>
+        <line num="467" count="0" type="stmt"/>
+        <line num="489" count="0" type="stmt"/>
+        <line num="490" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="493" count="0" type="stmt"/>
+        <line num="494" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="497" count="0" type="stmt"/>
+        <line num="498" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="501" count="0" type="stmt"/>
+        <line num="502" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="505" count="0" type="stmt"/>
+        <line num="506" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="511" count="0" type="stmt"/>
+        <line num="512" count="0" type="stmt"/>
+        <line num="533" count="0" type="stmt"/>
+        <line num="534" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="537" count="0" type="stmt"/>
+        <line num="538" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="541" count="0" type="stmt"/>
+        <line num="542" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="545" count="0" type="stmt"/>
+        <line num="546" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="549" count="0" type="stmt"/>
+        <line num="550" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="555" count="0" type="stmt"/>
+        <line num="556" count="0" type="stmt"/>
+        <line num="578" count="0" type="stmt"/>
+        <line num="579" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="582" count="0" type="stmt"/>
+        <line num="583" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="586" count="0" type="stmt"/>
+        <line num="587" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="590" count="0" type="stmt"/>
+        <line num="591" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="594" count="0" type="stmt"/>
+        <line num="595" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="600" count="0" type="stmt"/>
+        <line num="601" count="0" type="stmt"/>
+        <line num="623" count="0" type="stmt"/>
+        <line num="628" count="0" type="stmt"/>
+        <line num="629" count="0" type="stmt"/>
+        <line num="671" count="0" type="stmt"/>
+      </file>
+      <file name="reviewpage.jsx" path="D:\CW projcet\survey\frontend\src\pages\reviewpage.jsx">
+        <metrics statements="113" coveredstatements="0" conditionals="94" coveredconditionals="0" methods="33" coveredmethods="0"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="85" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="106" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="108" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="122" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="132" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="134" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="149" count="0" type="stmt"/>
+        <line num="150" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="153" count="0" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="157" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="163" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="164" count="0" type="stmt"/>
+        <line num="167" count="0" type="cond" truecount="0" falsecount="11"/>
+        <line num="168" count="0" type="stmt"/>
+        <line num="169" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="181" count="0" type="cond" truecount="0" falsecount="8"/>
+        <line num="182" count="0" type="stmt"/>
+        <line num="183" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="195" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="196" count="0" type="stmt"/>
+        <line num="197" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="210" count="0" type="stmt"/>
+        <line num="211" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="224" count="0" type="stmt"/>
+        <line num="225" count="0" type="stmt"/>
+        <line num="239" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="240" count="0" type="stmt"/>
+        <line num="246" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="252" count="0" type="stmt"/>
+        <line num="276" count="0" type="stmt"/>
+        <line num="294" count="0" type="stmt"/>
+        <line num="306" count="0" type="stmt"/>
+        <line num="340" count="0" type="stmt"/>
+        <line num="503" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="504" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="523" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="530" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="542" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.store">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="D:\CW projcet\survey\frontend\src\store\index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

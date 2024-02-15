@@ -1,0 +1,9 @@
+// tsconfig.prod.json
+{
+    "extends": "./tsconfig",
+    "exclude": [
+      "./src/__tests__/**",
+      "./src/__mocks__/**",
+      "./src/test-utils"
+    ]
+  }
