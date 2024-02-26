@@ -51,6 +51,8 @@ function Setting() {
   const [editSelect2_1, setEditSelect2_1] = useState({})
   const [editConnect, setEditConnect] = useState('')
 
+  const [editSelectCount, setEditSelectCount] = useState('')
+
   //server data
   const [questions, setQuestions] = useState([])
   //error
@@ -91,6 +93,8 @@ function Setting() {
       setEditSelect1(questions.filter(item => item.id === editId)[0].select1)
       setEditSelect2(questions.filter(item => item.id === editId)[0].select2)
       setEditConnect(questions.filter(item => item.id === editId)[0].connect)
+      if(questions.filter(item => item.id === editId)[0].select_type === '1')
+        setEditSelectCount(questions.filter(item => item.id === editId)[0].select1.split(',').length - 1)
     }
     else {
       setEditSelect_type('')
@@ -103,6 +107,7 @@ function Setting() {
       setEditSelect2('')
       setEditSelect2_1({})
       setEditConnect('')
+      setEditSelectCount('')
     }
   }, [editId])
 
@@ -129,13 +134,15 @@ function Setting() {
 
   useEffect(() => {
     if (editSelect1) {
+      setEditSelect1_1({})
       editSelect1.split(',').forEach((item, idx) => {
         if (item === '' || item === null || item === undefined) return;
         setEditSelect1_1((prevSelect1Status) => ({
           ...prevSelect1Status,
-          ['option' + (idx + 1)]: item
+          ['option' + (idx + 1)]: item === '$' ? '' : item
         }));
       })
+      setEditSelect2_1({})
       editSelect2.split(',').forEach((item, idx) => {
         setEditSelect2_1((prevSelect1Status) => ({
           ...prevSelect1Status,
@@ -223,7 +230,7 @@ function Setting() {
     setSuccessStatus(false)
     setErrorStatus(false)
 
-    setTimeout(() => { sendData1() }, 1000)
+    setTimeout(() => { sendData1() }, 500)
   }
 
   const deleteData = () => {
@@ -246,9 +253,9 @@ function Setting() {
       questions.filter(item => item.id === detailId)[0].select1.split(',').map((item, idx) => {
         if (item !== '') {
           return (<div key={idx} className="flex flex-row items-center">
-            <input className="text-2xl enabled:hover:border-gray-400 appearance-none checked:bg-gray-500 w-5 h-5 checked:bg-[length:1.5em_1.5em] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-gray-500" type="radio" name="" id="" disabled />
-            <label className="text-2xl" htmlFor="">{item}</label>
-            <span className="text-2xl ml-5">{(select2[idx] === 'undefined' || select2[idx] === 'null' || select2[idx] === '') ? '未定' : select2[idx]}</span>
+            <input className="text-xl enabled:hover:border-gray-400 appearance-none checked:bg-gray-500 w-5 h-5 checked:bg-[length:1.5em_1.5em] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-gray-500" type="radio" name="" id="" disabled />
+            <label className="ml-2 text-xl flex w-56" htmlFor="">{item}</label>
+            <span className="text-xl ml-5 w-48">{(select2[idx] === 'undefined' || select2[idx] === 'null' || select2[idx] === '' || select2[idx] === '-1') ? '未定' : select2[idx]}</span>
           </div>)
         }
       })
@@ -261,19 +268,20 @@ function Setting() {
         if (item !== '') {
           return (<div key={idx} className="flex flex-row items-center">
             <input className="text-2xl enabled:hover:border-gray-400 appearance-none checked:bg-gray-500 w-5 h-5 checked:bg-[length:1.5em_1.5em] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-gray-500" type="radio" name="" id="" />
-            <TextInput value={editSelect1_1['option' + (idx + 1)] ? editSelect1_1['option' + (idx + 1)] : ''} onChange={e => {
+            <TextInput className="ml-2" value={editSelect1_1['option' + (idx + 1)] ? editSelect1_1['option' + (idx + 1)] : ''} onChange={e => {
               setEditSelect1_1((prevSelect1Status) => ({
                 ...prevSelect1Status,
                 ['option' + (idx + 1)]: e.target.value
               }))
             }} />
-            <label className="text-2xl" htmlFor="">割り当て</label>
+            <label className="text-xl ml-4" htmlFor="">割り当て</label>
             <Select value={editSelect2_1['option' + (idx + 1)]} onChange={e => {
               setEditSelect2_1((prevSelect2Status) => ({
                 ...prevSelect2Status,
                 ['option' + (idx + 1)]: e.target.value
               }));
             }} className="text-sm py-1 px-1 rounded border-gray-500 ml-2">
+              <option value="-1"></option>
               {
                 questions.map((item1, idx1) => (
                   <option key={idx1} value={item1.question_id}>{item1.question_id}</option>
@@ -288,37 +296,62 @@ function Setting() {
     )
   }
 
+  const change_edit_select_count = (value) => {
+    let temp = editSelect1.split(',').filter(item => item !== '');
+    let temp1 = ''
+    for(let i = 0; (i < temp.length || i < value); i++) {
+      if(i >= value) break;
+      if(i >= temp.length) {
+        temp1 += '$,'
+      }
+      else {
+        temp1 += temp[i] + ','
+      }
+    }
+
+    let temp0 = editSelect2.split(',').filter(item => item !== '')
+    let temp0_1 = ''
+    if(value < temp0.length) {
+      for(let i = 0; i < value; i++) temp0_1 += temp0[i] + ','
+      setEditSelect2(temp0_1)
+    }
+
+
+    setEditSelectCount(value)
+    setEditSelect1(temp1)
+  }
+
   const sendData2 = () => {
-    let s最後のアンケート2_id = editId;
-    let s最後のアンケート2_select_type = editSelect_type
-    let s最後のアンケート2_question_id = editQuestionId
-    let s最後のアンケート2_question_no = editQuestionNo
-    let s最後のアンケート2_question_name = editQuestionName
-    let s最後のアンケート2_select1 = ''
+    let send2_id = editId;
+    let send2_select_type = editSelect_type
+    let send2_question_id = editQuestionId
+    let send2_question_no = editQuestionNo
+    let send2_question_name = editQuestionName
+    let send2_select1 = ''
     for (let i in editSelect1_1) {
       if (editSelect1_1[i] === '' || editSelect1_1[i] === null || editSelect1_1[i] === undefined) {
         setErrorStatus1(true);
         return;
       }
-      s最後のアンケート2_select1 += editSelect1_1[i] + ','
+      send2_select1 += editSelect1_1[i] + ','
     }
-    let s最後のアンケート2_select2 = ''
+    let send2_select2 = ''
     for (let i in editSelect2_1) {
-      s最後のアンケート2_select2 += editSelect2_1[i] + ','
+      send2_select2 += editSelect2_1[i] + ','
     }
-    let s最後のアンケート2_connect = editConnect
-    let s最後のアンケート2_require = editRequire
+    let send2_connect = editConnect
+    let send2_require = editRequire
 
     axios.post(`${config.server_url}/papersetting/update`, {
-      id: s最後のアンケート2_id,
-      select_type: s最後のアンケート2_select_type,
-      questionId: s最後のアンケート2_question_id,
-      questionNo: s最後のアンケート2_question_no,
-      questionName: s最後のアンケート2_question_name,
-      select1: s最後のアンケート2_select1,
-      select2: s最後のアンケート2_select2,
-      connect: s最後のアンケート2_connect,
-      require: s最後のアンケート2_require
+      id: send2_id,
+      select_type: send2_select_type,
+      questionId: send2_question_id,
+      questionNo: send2_question_no,
+      questionName: send2_question_name,
+      select1: send2_select1,
+      select2: send2_select2,
+      connect: send2_connect,
+      require: send2_require
     })
       .then(function (response) {
         if (response.data.message === 'success') {
@@ -335,11 +368,11 @@ function Setting() {
 
   }
 
-  const s最後のアンケート2 = () => {
+  const send2 = () => {
     setErrorStatus1(false)
     setSuccessStatus1(false)
 
-    setTimeout(() => { sendData2() }, 1000)
+    setTimeout(() => { sendData2() }, 500)
   }
 
   return (
@@ -355,16 +388,16 @@ function Setting() {
           <div className="flex flex-wrap mt-3">
             {questions.map(item => (
               <section onClick={() => { setDetailId(item.id) }} key={item.id} className=" rounded-lg border border-gray-300 mt-3 ml-3 w-56 h-64 relative hover:shadow-lg cursor-pointer ease-in duration-300">
-                <div className=" absolute top-20 left-16">
-                  <label className=" font-bold text-blue-500" htmlFor="">識別子:</label>
-                  <span className="ml-3 text-blue-500">{item.question_id}</span>
+                <div className=" absolute top-16 left-16">
+                  <label className=" font-bold text-blue-500" htmlFor="">{item.select_type === '1' ? '選択形式' : '入力形式'}</label>
                 </div>
-                <div className="absolute top-28 left-16">
+                <div className=" absolute top-24 left-16">
+                  <label className=" font-bold text-green-500" htmlFor="">識別子:</label>
+                  <span className="ml-3 text-green-500">{item.question_id}</span>
+                </div>
+                <div className="absolute top-32 left-16">
                   <label className="font-bold text-yellow-400" htmlFor="">質問:</label>
                   <span className="ml-3 text-yellow-400">{item.question_no}</span>
-                </div>
-                <div className="absolute top-36 left-16">
-                  <label className="font-bold text-red-500" htmlFor="">{ item.require === true ? '必須': '' }</label>
                 </div>
                 <label htmlFor=""></label>
                 <div className="absolute bottom-1 right-1 flex flex-row">
@@ -452,10 +485,12 @@ function Setting() {
                         <option value="Q18">Q18</option>
                       </Select>
                     </div>
-                    <div className="flex flex-row items-center ml-5">
-                      <label htmlFor="必須">必須</label>
-                      <Checkbox value={require} onChange={(event) => { event.target.checked ? setRequire(true) : setRequire(false) }} />
-                    </div>
+                    {select_type === "2" &&
+                      <div className="flex flex-row items-center ml-5">
+                        <label htmlFor="必須">必須</label>
+                        <Checkbox value={require} onChange={(event) => { event.target.checked ? setRequire(true) : setRequire(false) }} />
+                      </div>
+                    }
                   </div>
                 }
                 {(select_type === "1" || select_type === "2") &&
@@ -525,19 +560,19 @@ function Setting() {
         </Modal>
         {/* view modal */}
         {detailId !== '' &&
-          <Modal size='7xl' show={detailId !== ''} onClose={() => { setDetailId('') }}>
+          <Modal size='3xl' show={detailId !== ''} onClose={() => { setDetailId('') }}>
             <Modal.Header >詳細ビュー</Modal.Header>
             <Modal.Body >
               <div className="space-y-6 flex flex-col">
                 <div className="flex flex-row items-center">
-                  <label className=" text-2xl" htmlFor="">識別子:</label>
-                  <span className=" text-2xl">{questions.filter(item => item.id === detailId)[0].question_id}</span>
-                  <label className="ml-5 text-2xl" htmlFor="">必須:</label>
-                  <Checkbox className=" text-2xl" checked={questions.filter(item => item.id === detailId)[0].require === true} onChange={(event) => { event.target.checked ? setRequire(true) : setRequire(false) }} />
+                  <label className=" text-xl" htmlFor="">識別子:</label>
+                  <span className="ml-2 text-xl">{questions.filter(item => item.id === detailId)[0].question_id}</span>
+                  {questions.filter(item => item.id === detailId)[0].select_type === '2' && <label className="ml-5 text-2xl" htmlFor="">必須:</label>}
+                  {questions.filter(item => item.id === detailId)[0].select_type === '2' && <Checkbox className=" text-2xl" checked={questions.filter(item => item.id === detailId)[0].require === true} onChange={(event) => { event.target.checked ? setRequire(true) : setRequire(false) }} />}
                 </div>
                 <div className=" bg-white rounded-lg pt-2 pb-2">
-                  <label className=" text-2xl" htmlFor="">{questions.filter(item => item.id === detailId)[0].question_no + ". "}</label>
-                  <span className=" text-2xl">{questions.filter(item => item.id === detailId)[0].question_name}</span>
+                  <label className=" text-xl" htmlFor="">{questions.filter(item => item.id === detailId)[0].question_no + ". "}</label>
+                  <span className=" text-xl">{questions.filter(item => item.id === detailId)[0].question_name}</span>
                 </div>
                 {questions.filter(item => item.id === detailId)[0].select_type === '1' &&
                   <div>
@@ -546,8 +581,8 @@ function Setting() {
                 }
                 {questions.filter(item => item.id === detailId)[0].select_type === '2' &&
                   <div className="">
-                    <label className=" text-2xl" htmlFor="">割り当て:</label>
-                    <span className=" text-2xl">{questions.filter(item => item.id === detailId)[0].connect}</span>
+                    <label className=" text-xl" htmlFor="">割り当て:</label>
+                    <span className="ml-2 text-xl">{questions.filter(item => item.id === detailId)[0].connect}</span>
                   </div>
                 }
               </div>
@@ -575,10 +610,10 @@ function Setting() {
                   }
                 </div>
                 <div className="flex flex-row items-center">
-                  <label className=" text-2xl" htmlFor="">識別子:</label>
-                  <TextInput value={editQuestionId} onChange={e => setEditQuestionId(e.target.value)} />
-                  <label className="ml-5 text-2xl" htmlFor="">質問番号:</label>
-                  <Select value={editQuestionNo} onChange={(e) => { setEditQuestionNo(e.target.value) }} className="text-sm py-1 px-1 rounded border-gray-500">
+                  <label className="font-medium text-xl" htmlFor="">識別子:</label>
+                  <TextInput className="ml-2" value={editQuestionId} onChange={e => setEditQuestionId(e.target.value)} />
+                  <label className="ml-5 font-medium text-xl" htmlFor="">質問番号:</label>
+                  <Select value={editQuestionNo} onChange={(e) => { setEditQuestionNo(e.target.value) }} className="ml-2 text-sm py-1 px-1 rounded border-gray-500 ml-1">
                     <option value="Q1">Q1</option>
                     <option value="Q2">Q2</option>
                     <option value="Q3">Q3</option>
@@ -598,12 +633,38 @@ function Setting() {
                     <option value="Q17">Q17</option>
                     <option value="Q18">Q18</option>
                   </Select>
-                  <label className="ml-5 text-2xl" htmlFor="">必須:</label>
-                  <Checkbox className="text-2xl" checked={editRequire === true} onChange={(event) => { event.target.checked ? setEditRequire(true) : setEditRequire(false) }} />
+                  {editSelect_type === '1' &&
+                    <div className="flex flex-row items-center">
+                      <label className="ml-2 font-medium text-xl" htmlFor="カウント">カウント:</label>
+                      <Select value={editSelectCount} onChange={(e) => { change_edit_select_count(e.target.value) }} className="text-sm py-1 px-1 rounded border-gray-500 ml-1" name="year" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                      </Select>
+                    </div>
+                  }
+                  {editSelect_type === '2' &&
+                    <label className="ml-5 font-medium text-xl" htmlFor="">必須:</label>
+                  }
+                  {editSelect_type === '2' &&
+                    <Checkbox className="font-medium text-xl" checked={editRequire === true} onChange={(event) => { event.target.checked ? setEditRequire(true) : setEditRequire(false) }} />
+                  }
                 </div>
-                <div className="">
-                  <label className=" text-2xl" htmlFor="">質問名:</label>
-                  <TextInput onChange={(e) => { setEditQuestionName(e.target.value) }} value={editQuestionName} />
+                <div className="flex flex-row items-center">
+                  <label className="font-medium text-xl" htmlFor="">質問名:</label>
+                  <TextInput className=" ml-2 flex-grow" onChange={(e) => { setEditQuestionName(e.target.value) }} value={editQuestionName} />
                 </div>
                 {editSelect_type === '1' &&
                   <div>
@@ -611,9 +672,10 @@ function Setting() {
                   </div>
                 }
                 {editSelect_type === '2' &&
-                  <div className="">
+                  <div className="flex flex-row items-center">
                     <label className="text-2xl" htmlFor="">割り当て:</label>
-                    <Select value={editConnect} onChange={e => { setEditConnect(e.target.value) }} className="text-sm py-1 px-1 rounded border-gray-500">
+                    <Select value={editConnect} onChange={e => { setEditConnect(e.target.value) }} className="ml-2 text-sm rounded border-gray-500">
+                      <option value="-1"></option>
                       {
                         questions.map((item1, idx1) => (
                           <option key={idx1} value={item1.question_id}>{item1.question_id}</option>
@@ -627,7 +689,7 @@ function Setting() {
               </div>
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={() => { s最後のアンケート2() }}>変更</Button>
+              <Button onClick={() => { send2() }}>変更</Button>
               <Button color="gray" onClick={() => { setEditId('') }}>
                 取り消す
               </Button>
