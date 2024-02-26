@@ -14,6 +14,7 @@ function Questionnaire1() {
   // You can also parse the query string into an object
   const queryParams = new URLSearchParams(queryString);
   const store_url_name = queryParams.get('name'); // Replace 'paramName' with your actual parameter name
+  const store_group_id = queryParams.get('id'); // Replace 'paramName' with your actual parameter name
 
   const [store_name, setStoreName] = useState("")
   const [store_business_url, setBusinessURL] = useState("")
@@ -35,7 +36,7 @@ function Questionnaire1() {
   const getData = () => {
     axios.get(`${config.server_url}/papersetting/view`)
       .then(function (response) {
-        let temp = response.data.questions;
+        let temp = response.data.questions.filter(item => item.group_id === store_group_id);
         for (let i = 0; i < temp.length; i++) {
           temp[i] = {
             ...temp[i],
@@ -268,8 +269,8 @@ function Questionnaire1() {
 
     axios.post(`${config.server_url}/review/create`, temp)
       .then(function (response) {
-        if (response.data.message === lang("en", "created"))
-          if (questionStatus.Congratlation1.display === 1) {
+        if (response.data.message === lang("en", "success"))
+          if (questionStatus.Congratlation1.display === true) {
             setTimeout(() => {
               console.log(store_business_url)
               window.location.href = store_business_url

@@ -12,6 +12,7 @@ import Login from './pages/login.jsx'
 import Graph from './pages/graph.jsx'
 import Questionnaire from './pages/questionnaire.jsx'
 import Questionnaire1 from './pages/questionnaire1.jsx'
+import PaperGroup from './pages/papergroup.jsx'
 import Setting from './pages/setting.jsx';
 
 import { getUser } from './features/userSlice.js';
@@ -34,7 +35,8 @@ function App() {
         {/* <Route path="/questionnaire1" element={<Questionnaire1 />} /> */}
         <Route path="/login" element={<Login />} />
         {user && <Route path="/home" element={<Home />} />}
-        {user && <Route path="/setting" element={<Setting />} />}
+        {user && <Route path="/papersetting" element={<Setting />} />}
+        {user && <Route path="/setting" element={<PaperGroup />} />}
         {user && <Route path="/managestore" element={<ManageStore />} />}
         {user && <Route path="/reviewpage" element={<ReviewPage1 />} />}
         {user && <Route path="/graph" element={<Graph />} />}

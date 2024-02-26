@@ -22,9 +22,9 @@ function Header() {
   return (
     <Navbar fluid className='navbar bg-stone-200 px-2'>
       <Navbar.Brand href="/managestore">
-        <h1 className='c-brand'>Q</h1>
+        <h1 className='c-brand font-semibold'>アンケート調査</h1>
         {/* <img src="./public/logo.png" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" /> */}
-        <span className="c-brand self-center whitespace-nowrap text-xl font-semibold dark:text-white">uestionnaire</span>
+        {/* <span className="c-brand self-center whitespace-nowrap text-xl font-semibold dark:text-white">uestionnaire</span> */}
       </Navbar.Brand>
       <div className="flex items-center">
 

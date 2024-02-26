@@ -8,6 +8,7 @@ import { view, createOrUpdate, deleteStore, resetError, resetStatus } from '../f
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
 import { BiPlus } from "react-icons/bi";
 import { HiInformationCircle, HiOutlineExclamationCircle } from 'react-icons/hi';
+import { useLocation } from 'react-router-dom';
 
 import lang from "../lang/lang";
 
@@ -19,10 +20,14 @@ import LiftSide from "../components/liftside"
 import axios from "axios";
 
 function Setting() {
+  const location = useLocation();
 
-  const dispatch = useDispatch()
+  // Access the query string from the location object
+  const queryString = location.search;
 
-  const { store, isLoading, status, error } = useSelector((store) => store.store);
+  // You can also parse the query string into an object
+  const queryParams = new URLSearchParams(queryString);
+  const group_id = queryParams.get('id'); // Replace 'paramName' with your actual parameter name
 
   //option1
   const [select_type, setSelect_type] = useState('-1')
@@ -69,7 +74,7 @@ function Setting() {
   const getData = () => {
     axios.get(`${config.server_url}/papersetting/view`)
       .then(function (response) {
-        setQuestions(response.data.questions)
+        setQuestions(response.data.questions.filter(item => item.group_id === group_id))
       })
       .catch(err => {
         console.log(err)
@@ -93,7 +98,7 @@ function Setting() {
       setEditSelect1(questions.filter(item => item.id === editId)[0].select1)
       setEditSelect2(questions.filter(item => item.id === editId)[0].select2)
       setEditConnect(questions.filter(item => item.id === editId)[0].connect)
-      if(questions.filter(item => item.id === editId)[0].select_type === '1')
+      if (questions.filter(item => item.id === editId)[0].select_type === '1')
         setEditSelectCount(questions.filter(item => item.id === editId)[0].select1.split(',').length - 1)
     }
     else {
@@ -202,6 +207,7 @@ function Setting() {
 
     axios.post(`${config.server_url}/papersetting/create`, {
       select_type,
+      group_id,
       questionId,
       questionNo,
       questionName,
@@ -299,9 +305,9 @@ function Setting() {
   const change_edit_select_count = (value) => {
     let temp = editSelect1.split(',').filter(item => item !== '');
     let temp1 = ''
-    for(let i = 0; (i < temp.length || i < value); i++) {
-      if(i >= value) break;
-      if(i >= temp.length) {
+    for (let i = 0; (i < temp.length || i < value); i++) {
+      if (i >= value) break;
+      if (i >= temp.length) {
         temp1 += '$,'
       }
       else {
@@ -311,8 +317,8 @@ function Setting() {
 
     let temp0 = editSelect2.split(',').filter(item => item !== '')
     let temp0_1 = ''
-    if(value < temp0.length) {
-      for(let i = 0; i < value; i++) temp0_1 += temp0[i] + ','
+    if (value < temp0.length) {
+      for (let i = 0; i < value; i++) temp0_1 += temp0[i] + ','
       setEditSelect2(temp0_1)
     }
 
@@ -344,6 +350,7 @@ function Setting() {
 
     axios.post(`${config.server_url}/papersetting/update`, {
       id: send2_id,
+      group_id,
       select_type: send2_select_type,
       questionId: send2_question_id,
       questionNo: send2_question_no,
@@ -389,15 +396,15 @@ function Setting() {
             {questions.map(item => (
               <section onClick={() => { setDetailId(item.id) }} key={item.id} className=" rounded-lg border border-gray-300 mt-3 ml-3 w-56 h-64 relative hover:shadow-lg cursor-pointer ease-in duration-300">
                 <div className=" absolute top-16 left-16">
-                  <label className=" font-bold text-blue-500" htmlFor="">{item.select_type === '1' ? '選択形式' : '入力形式'}</label>
+                  <label className=" font-bold text-gray-500" htmlFor="">{item.select_type === '1' ? '選択形式' : '入力形式'}</label>
                 </div>
                 <div className=" absolute top-24 left-16">
-                  <label className=" font-bold text-green-500" htmlFor="">識別子:</label>
-                  <span className="ml-3 text-green-500">{item.question_id}</span>
+                  <label className=" font-bold text-gray-500" htmlFor="">識別子:</label>
+                  <span className="ml-3 text-gray-500">{item.question_id}</span>
                 </div>
                 <div className="absolute top-32 left-16">
-                  <label className="font-bold text-yellow-400" htmlFor="">質問:</label>
-                  <span className="ml-3 text-yellow-400">{item.question_no}</span>
+                  <label className="font-bold text-gray-500" htmlFor="">質問:</label>
+                  <span className="ml-3 text-gray-500">{item.question_no}</span>
                 </div>
                 <label htmlFor=""></label>
                 <div className="absolute bottom-1 right-1 flex flex-row">
