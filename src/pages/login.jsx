@@ -9,7 +9,7 @@ import { signin, resetError } from '../features/userSlice'
 
 function Login() {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const { user, error } = useSelector((store) => store.user);
     const dispatch = useDispatch();
@@ -17,14 +17,16 @@ function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    // useEffect(() => {
-    //     // inputRef.current.focus();
-    // }, [])
-    // useEffect(() => {
-    //     if (user) {
-    //         navigate('/managestore', { replace: true });
-    //     }
-    // }, [user]);
+    useEffect(() => {
+        if (user) {
+            navigate('/managestore', { replace: true });
+        }
+    }, [])
+    useEffect(() => {
+        if (user) {
+            navigate('/managestore', { replace: true });
+        }
+    }, [user]);
     // useEffect(() => {
     //     setTimeout(() => {
     //         dispatch(resetError());

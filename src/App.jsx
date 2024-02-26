@@ -10,6 +10,8 @@ import Profile from './pages/profile.jsx';
 import Login from './pages/login.jsx'
 import Graph from './pages/graph.jsx'
 import Questionnaire from './pages/questionnaire.jsx'
+import Setting from './pages/setting.jsx';
+
 import { getUser } from './features/userSlice.js';
 import store from './store'
 
@@ -29,6 +31,7 @@ function App() {
         <Route path="/questionnaire" element={<Questionnaire />} />
         <Route path="/login" element={<Login />} />
         {user && <Route path="/home" element={<Home />} />}
+        {user && <Route path="/setting" element={<Setting />} />}
         {user && <Route path="/managestore" element={<ManageStore />} />}
         {user && <Route path="/reviewpage" element={<ReviewPage />} />}
         {user && <Route path="/graph" element={<Graph />} />}

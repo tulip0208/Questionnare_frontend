@@ -2,7 +2,7 @@
 'use client';
 
 import { Sidebar } from 'flowbite-react';
-import { BiUser, BiSpreadsheet, BiTask, BiBarChartAlt, BiLogOut } from "react-icons/bi";
+import { BiUser, BiSpreadsheet, BiTask, BiBarChartAlt, BiLogOut, BiWrench } from "react-icons/bi";
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { logOut } from '../features/userSlice'
@@ -18,8 +18,27 @@ function LiftSide(props) {
   }
 
   const renderItem = () => {
-    if (props.select === 1) {
+    if (props.select === 0) {
       return [
+        <Sidebar.Item key={0} className='bg-gray-200' href="/setting" icon={BiWrench}>
+          アンケート設定
+        </Sidebar.Item>,
+        <Sidebar.Item key={1} href="/managestore" icon={BiTask}>
+          店舗管理
+        </Sidebar.Item>,
+        <Sidebar.Item key={2} href="/reviewpage" icon={BiSpreadsheet}>
+          調査調査
+        </Sidebar.Item>,
+        <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
+          グラフ表示
+        </Sidebar.Item>,
+      ]
+    }
+    else if (props.select === 1) {
+      return [
+        <Sidebar.Item key={0} href="/setting" icon={BiWrench}>
+          アンケート設定
+        </Sidebar.Item>,
         <Sidebar.Item key={1} className='bg-gray-200' href="/managestore" icon={BiTask}>
           店舗管理
         </Sidebar.Item>,
@@ -35,6 +54,9 @@ function LiftSide(props) {
 
     else if (props.select === 2) {
       return [
+        <Sidebar.Item key={0} href="/setting" icon={BiWrench}>
+          アンケート設定
+        </Sidebar.Item>,
         <Sidebar.Item key={1} href="/managestore" icon={BiTask}>
           店舗管理
         </Sidebar.Item>,
@@ -50,6 +72,9 @@ function LiftSide(props) {
     }
     else if (props.select === 3) {
       return [
+        <Sidebar.Item key={0} href="/setting" icon={BiWrench}>
+          アンケート設定
+        </Sidebar.Item>,
         <Sidebar.Item key={1} href="/managestore" icon={BiTask}>
           店舗管理
         </Sidebar.Item>,
@@ -65,6 +90,9 @@ function LiftSide(props) {
     }
     else {
       return [
+        <Sidebar.Item key={0} href="/setting" icon={BiWrench}>
+          アンケート設定
+        </Sidebar.Item>,
         <Sidebar.Item key={1} href="/managestore" icon={BiTask}>
           店舗管理
         </Sidebar.Item>,
