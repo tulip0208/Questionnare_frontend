@@ -338,13 +338,13 @@ function ReviewPage1() {
                 {
                   reviewData.length !== 0 ? reviewData.map((item, cdx) => (
                     <tr key={item.id} className="border  border-slate-300 border-l-0 border-r-0">
-                      <td className="px-2 py-2 text-sm ">{(pageno - 1) * 30 + cdx + 1}</td>
-                      <td className="px-2 py-2 text-sm break-words">{item.store_name}</td>
-                      <td className="px-2 py-2 text-sm break-all">{item.store_business_url}</td>
-                      <td className="px-2 py-2 text-sm break-all">{item.answers.split(',')[0]}</td>
-                      <td className="px-2 py-2 text-sm">{moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss")}</td>
-                      {item.readState === 0 && <td className="px-2 py-2 text-sm text-gray hover:underline dark:text-gray cursor-pointer"><BsReverseLayoutTextSidebarReverse onClick={() => { detailView(item.id) }} className="shadow-2xl" /></td>}
-                      {item.readState === 1 && <td className="px-2 py-2 text-sm text-cyan-600 hover:underline dark:text-cyan-500 cursor-pointer"><BsReverseLayoutTextSidebarReverse onClick={() => { detailView(item.id) }} className="shadow-2xl" /></td>}
+                      <td className="text-center px-2 py-2 text-sm ">{(pageno - 1) * 30 + cdx + 1}</td>
+                      <td className="text-center px-2 py-2 text-sm break-words">{item.store_name}</td>
+                      <td className="text-center px-2 py-2 text-sm break-all">{item.store_business_url}</td>
+                      <td className="text-center px-2 py-2 text-sm break-all">{item.answers.split(',')[0]}</td>
+                      <td className="text-center px-2 py-2 text-sm">{moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss")}</td>
+                      {item.readState === 0 && <td className="text-center px-2 py-2 text-sm text-gray hover:underline dark:text-gray cursor-pointer relative"><BsReverseLayoutTextSidebarReverse onClick={() => { detailView(item.id) }} className="shadow-2xl absolute left-1/2 top-3" /></td>}
+                      {item.readState === 1 && <td className="text-center px-2 py-2 text-sm text-cyan-600 hover:underline dark:text-cyan-500 cursor-pointer relative"><BsReverseLayoutTextSidebarReverse onClick={() => { detailView(item.id) }} className="shadow-2xl absolute left-1/2 top-3" /></td>}
                     </tr>
                   )) :
                     <tr className="py-5 border border-slate-300 border-l-0 border-r-0">

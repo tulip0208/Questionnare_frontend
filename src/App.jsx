@@ -5,12 +5,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 import Home from './pages/home.jsx'
 import ManageStore from './pages/managestore.jsx';
-import ReviewPage from './pages/reviewpage.jsx';
+// import ReviewPage from './pages/reviewpage.jsx';
 import ReviewPage1 from './pages/reviewpage1.jsx';
 import Profile from './pages/profile.jsx';
 import Login from './pages/login.jsx'
-import Graph from './pages/graph.jsx'
-import Questionnaire from './pages/questionnaire.jsx'
+// import Graph from './pages/graph.jsx'
+// import Questionnaire from './pages/questionnaire.jsx'
 import Questionnaire1 from './pages/questionnaire1.jsx'
 import PaperGroup from './pages/papergroup.jsx'
 import Setting from './pages/setting.jsx';
@@ -39,7 +39,7 @@ function App() {
         {user && <Route path="/setting" element={<PaperGroup />} />}
         {user && <Route path="/managestore" element={<ManageStore />} />}
         {user && <Route path="/reviewpage" element={<ReviewPage1 />} />}
-        {user && <Route path="/graph" element={<Graph />} />}
+        {/* {user && <Route path="/graph" element={<Graph />} />} */}
         {user && <Route path="/profile" element={<Profile />} />}
       </Routes>
     </Router>

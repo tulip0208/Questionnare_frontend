@@ -2,7 +2,7 @@
 'use client';
 
 import { Sidebar } from 'flowbite-react';
-import { BiUser, BiSpreadsheet, BiTask, BiBarChartAlt, BiLogOut, BiWrench } from "react-icons/bi";
+import { BiUser, BiData , BiBuilding , BiBarChartAlt, BiLogOut, BiWrench, BiCog  } from "react-icons/bi";
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { logOut } from '../features/userSlice'
@@ -20,88 +20,88 @@ function LiftSide(props) {
   const renderItem = () => {
     if (props.select === 0) {
       return [
-        <Sidebar.Item key={0} className='bg-gray-200' href="/setting" icon={BiWrench}>
-          アンケート設定
+        <Sidebar.Item key={0} className='bg-gray-200' href="/setting" icon={BiCog}>
+          アンケート
         </Sidebar.Item>,
-        <Sidebar.Item key={1} href="/managestore" icon={BiTask}>
+        <Sidebar.Item key={1} href="/managestore" icon={BiBuilding }>
           店舗管理
         </Sidebar.Item>,
-        <Sidebar.Item key={2} href="/reviewpage" icon={BiSpreadsheet}>
+        <Sidebar.Item key={2} href="/reviewpage" icon={BiData }>
           調査調査
         </Sidebar.Item>,
-        <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
-          グラフ表示
-        </Sidebar.Item>,
+        // <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
+        //   グラフ表示
+        // </Sidebar.Item>,
       ]
     }
     else if (props.select === 1) {
       return [
-        <Sidebar.Item key={0} href="/setting" icon={BiWrench}>
-          アンケート設定
+        <Sidebar.Item key={0} href="/setting" icon={BiCog}>
+          アンケート
         </Sidebar.Item>,
-        <Sidebar.Item key={1} className='bg-gray-200' href="/managestore" icon={BiTask}>
+        <Sidebar.Item key={1} className='bg-gray-200' href="/managestore" icon={BiBuilding }>
           店舗管理
         </Sidebar.Item>,
-        <Sidebar.Item key={2} href="/reviewpage" icon={BiSpreadsheet}>
+        <Sidebar.Item key={2} href="/reviewpage" icon={BiData }>
           調査調査
         </Sidebar.Item>,
-        <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
-          グラフ表示
-        </Sidebar.Item>,
+        // <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
+        //   グラフ表示
+        // </Sidebar.Item>,
 
       ]
     }
 
     else if (props.select === 2) {
       return [
-        <Sidebar.Item key={0} href="/setting" icon={BiWrench}>
-          アンケート設定
+        <Sidebar.Item key={0} href="/setting" icon={BiCog}>
+          アンケート
         </Sidebar.Item>,
-        <Sidebar.Item key={1} href="/managestore" icon={BiTask}>
+        <Sidebar.Item key={1} href="/managestore" icon={BiBuilding }>
           店舗管理
         </Sidebar.Item>,
-        <Sidebar.Item key={2} className='bg-gray-200' href="/reviewpage" icon={BiSpreadsheet}>
+        <Sidebar.Item key={2} className='bg-gray-200' href="/reviewpage" icon={BiData }>
           調査調査
         </Sidebar.Item>,
-        <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
-          グラフ表示
-        </Sidebar.Item>,
+        // <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
+        //   グラフ表示
+        // </Sidebar.Item>,
 
       ]
 
     }
     else if (props.select === 3) {
       return [
-        <Sidebar.Item key={0} href="/setting" icon={BiWrench}>
-          アンケート設定
+        <Sidebar.Item key={0} href="/setting" icon={BiCog}>
+          アンケート
         </Sidebar.Item>,
-        <Sidebar.Item key={1} href="/managestore" icon={BiTask}>
+        <Sidebar.Item key={1} href="/managestore" icon={BiBuilding }>
           店舗管理
         </Sidebar.Item>,
-        <Sidebar.Item key={2} href="/reviewpage" icon={BiSpreadsheet}>
+        <Sidebar.Item key={2} href="/reviewpage" icon={BiData }>
           調査調査
         </Sidebar.Item>,
-        <Sidebar.Item key={3} className='bg-gray-200' href="/graph" icon={BiBarChartAlt}>
-          グラフ表示
-        </Sidebar.Item>
+        // <Sidebar.Item key={3} className='bg-gray-200' href="/graph" icon={BiBarChartAlt}>
+        //   グラフ表示
+        // </Sidebar.Item>
 
       ]
 
     }
     else {
       return [
-        <Sidebar.Item key={0} href="/setting" icon={BiWrench}>
-          アンケート設定
+        <Sidebar.Item key={0} href="/setting" icon={BiCog}>
+          アンケート
         </Sidebar.Item>,
-        <Sidebar.Item key={1} href="/managestore" icon={BiTask}>
+        <Sidebar.Item key={1} href="/managestore" icon={BiBuilding }>
           店舗管理
         </Sidebar.Item>,
-        <Sidebar.Item key={2} href="/reviewpage" icon={BiSpreadsheet}>
+        <Sidebar.Item key={2} href="/reviewpage" icon={BiData }>
           調査調査
         </Sidebar.Item>,
-        <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
-          グラフ表示
-        </Sidebar.Item>
+        // <Sidebar.Item key={3} href="/graph" icon={BiBarChartAlt}>
+        //   グラフ表示
+        // </Sidebar.Item>
 
       ]
 

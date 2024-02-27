@@ -388,7 +388,7 @@ function Setting() {
       <main className="flex flex-row width-1200 mx-auto my-0">
         <LiftSide select={0}></LiftSide>
         <div className="basis-6/7 px-10 py-12 flex flex-col grow">
-          <h1 className="text-gray-900">アンケート設定</h1>
+          <h1 className="text-gray-900">アンケート</h1>
           <div className="mt-6">
             <Button type="button" onClick={() => setModalOpen1(true)} >新しく作成</Button>
           </div>
