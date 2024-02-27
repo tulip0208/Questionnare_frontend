@@ -106,7 +106,7 @@ function ReviewPage() {
     if ((s_no + 5) <= end_no) {
       for (let i = s_no; i < (s_no + 6); i++) {
         if (i === pageno)
-          temp.push(<a key={i} onClick={ () => { e.preventDefault(); setPageNo(i) }} href="#" className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{i}</a>)
+          temp.push(<a key={i} onClick={ () => { e.preventDefault(); setPageNo(i) }} href="#" className="pagenatione-active relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{i}</a>)
         else temp.push(<a key={i} onClick={ () => { e.preventDefault(); setPageNo(i) }} href="#" className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">{i}</a>)
       }
       // return ([
@@ -120,7 +120,7 @@ function ReviewPage() {
     else {
       for (let i = s_no; i < (end_no + 1); i++)
         if (i === pageno)
-          temp.push(<a key={i} onClick={ (e) => { e.preventDefault(); setPageNo(i) }} href="#" className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{i}</a>)
+          temp.push(<a key={i} onClick={ (e) => { e.preventDefault(); setPageNo(i) }} href="#" className="pagenatione-active relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{i}</a>)
         else temp.push(<a key={i} onClick={ (e) => { e.preventDefault(); setPageNo(i) }} href="#" className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">{i}</a>)
 
     }
@@ -230,14 +230,14 @@ function ReviewPage() {
     <Flowbite>
       <Header></Header>
       <main className="flex flex-row width-1200 mx-auto my-0">
-        <LiftSide select={2}></LiftSide>
+        <LiftSide className="" select={2}></LiftSide>
         <div className="grow px-10 py-12 basis-6/7 flex flex-col">
           <h1 className="text-gray-900">調査調査</h1>
           <div className="flex flex-col mt-5">
 
             <div className="condition1 ml-5 flex flex-row">
               <TextInput onKeyDown={(e) => { e.which === 13 && find() }} onChange={(e) => { setKeyword(e.target.value) }} type="text" className="text-3xl width-50-rem" name="" id="" />
-              <Button className="text-3xl ml-3" type="button" onClick={() => { find() }}>検索</Button>
+              <Button className="ml-3" type="button" onClick={() => { find() }}>検索</Button>
             </div>
 
             <div className="condition2 ml-5 mt-3 flex flex-row border border-gray-300 rounded items-center">
@@ -321,7 +321,7 @@ function ReviewPage() {
                   <th className="text-sm px-1 py-4 w-28">店舗名</th>
                   <th className="text-sm px-1 py-4 w-28">店舗URL	</th>
                   <th className="text-sm px-1 py-4 w-16">満足度</th>
-                  <th className="text-sm px-1 py-4 break-words w-15">性別</th>
+                  <th className="text-sm px-1 py-4 break-words w-16">性別</th>
                   <th className="text-sm px-1 py-4 w-16">年齢</th>
                   <th className="text-sm px-1 py-4 w-24">治療士性別</th>
                   <th className="text-sm px-1 py-4 w-24">治療士年齢</th>
@@ -336,9 +336,9 @@ function ReviewPage() {
               </thead>
               <tbody>
                 {
-                  reviewData.length !== 0 ? reviewData.map(item => (
-                    <tr key={item.id} className={item.readState === 0 ? "border  cursor-pointer border-slate-300 border-l-0 border-r-0" : "border bg-gray-200 border-slate-300 border-l-0 border-r-0  cursor-pointer"}>
-                      <td className="px-2 py-2 text-sm ">{item.id}</td>
+                  reviewData.length !== 0 ? reviewData.map((item, cdx) => (
+                    <tr key={item.id} className="border  border-slate-300 border-l-0 border-r-0">
+                      <td className="px-2 py-2 text-sm ">{ (pageno - 1) * 30 + cdx + 1}</td>
                       <td className="px-2 py-2 text-sm break-words">{item.store_name && item.store_name.slice(0, 5) + "..."}</td>
                       <td className="px-2 py-2 text-sm break-all">{ item.store_business_url && item.store_business_url.slice(0, 7) + "..."}</td>
                       <td className="text-sm text-center">
@@ -500,8 +500,8 @@ function ReviewPage() {
                       </td>
                       <td className="px-2 py-2 text-sm break-words">{item.pointer && item.pointer.slice(0, 2) + "..."}</td>
                       <td className="px-2 py-2 text-sm">{moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss")}</td>
-                      <td className="px-2 py-2 text-sm text-cyan-600 hover:underline dark:text-cyan-500 cursor-pointer"><BsReverseLayoutTextSidebarReverse onClick={() => { detailView(item.id, item.happy, item.sex, item.age, item.sex_doctor, item.age_doctor, item.stage_today, item.cure, item.waiter, item.technical, item.pointer, moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss"), item.store_name, item.store_business_url, item.store_questionnare_url) }} className="shadow-2xl" />
-                      </td>
+                      { item.readState === 0 && <td className="px-2 py-2 text-sm text-gray hover:underline dark:text-gray cursor-pointer"><BsReverseLayoutTextSidebarReverse onClick={() => { detailView(item.id, item.happy, item.sex, item.age, item.sex_doctor, item.age_doctor, item.stage_today, item.cure, item.waiter, item.technical, item.pointer, moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss"), item.store_name, item.store_business_url, item.store_questionnare_url) }} className="shadow-2xl" /></td> }
+                      { item.readState === 1 && <td className="px-2 py-2 text-sm text-cyan-600 hover:underline dark:text-cyan-500 cursor-pointer"><BsReverseLayoutTextSidebarReverse onClick={() => { detailView(item.id, item.happy, item.sex, item.age, item.sex_doctor, item.age_doctor, item.stage_today, item.cure, item.waiter, item.technical, item.pointer, moment(item.createdAt).format("YYYY-MM-DD HH:mm:ss"), item.store_name, item.store_business_url, item.store_questionnare_url) }} className="shadow-2xl" /></td> }
                     </tr>
                   )) :
                     <tr className="py-5 border border-slate-300 border-l-0 border-r-0">
@@ -523,14 +523,14 @@ function ReviewPage() {
                     <a href="#" onClick={ e => { e.preventDefault(); if(pageno !== 1) setPageNo(pageno - 1) } } className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                       <span className="sr-only">Previous</span>
                       <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                        <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
                       </svg>
                     </a>
                     {renderPagination()}
                     <a href="#" onClick={ e => { e.preventDefault(); if(pageno < (Math.ceil(matchCount / 30))) setPageNo(pageno + 1) } } className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                       <span className="sr-only">Next</span>
                       <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                        <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
                       </svg>
                     </a>
                   </nav>

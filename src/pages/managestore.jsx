@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { HiOutlineCheck, HiOutlineXCircle } from 'react-icons/hi';
-import { Flowbite, Table, Button, FloatingLabel, Modal, Label, TextInput, Alert } from 'flowbite-react';
+import { Flowbite, Table, Button, FloatingLabel, Modal, Select, Label, TextInput, Alert } from 'flowbite-react';
 
 import { view, createOrUpdate, deleteStore, resetError, resetStatus } from '../features/storeSlice'
-import { BsPencilSquare, BsTrash  } from "react-icons/bs";
+import { BsPencilSquare, BsTrash } from "react-icons/bs";
 
 import lang from "../lang/lang";
 
@@ -13,6 +13,8 @@ import config from "../app/config";
 
 import Header from '../components/header'
 import LiftSide from "../components/liftside"
+
+import axios from "axios";
 
 const customTheme1 = {
   "base": "flex flex-col gap-2 p-3 text-sm",
@@ -41,27 +43,39 @@ function ManageStore() {
   const [store_name, setStoreName] = useState("")
   const [store_business_url, setStoreBusinessURL] = useState("")
   const [store_url_name, setStoreURLName] = useState("")
+  const [group_id, setGroup_id] = useState('')
 
   const { store, isLoading, status, error } = useSelector((store) => store.store);
 
   const [edit_store_id, setEditStoreId] = useState("-1")
   const [edit_store_name, setEditStoreName] = useState("")
   const [edit_store_url_name, setEditStoreURLName] = useState("")
+  const [edit_group_id, setEdit_Group_id] = useState('')
   const [edit_store_business_url, setEditStoreBusinessURL] = useState("")
+
+  const [group_ids, setGroup_ids] = useState([])
 
   useEffect(() => {
     dispatch(view())
+    axios.get(`${config.server_url}/group/view`)
+      .then(function (response) {
+        setGroup_ids(response.data.group)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }, [])
 
   useEffect(() => {
     dispatch(view())
   }, [status])
 
-  const edit = (store_id1, store_name1, store_url_name1, store_business_url1) => {
+  const edit = (store_id1, store_name1, store_url_name1, store_business_url1, store_group_id) => {
     setEditStoreId(store_id1)
     setEditStoreName(store_name1)
     setEditStoreURLName(store_url_name1)
     setEditStoreBusinessURL(store_business_url1)
+    setEdit_Group_id(store_group_id)
   }
 
   const initializeState = () => {
@@ -116,13 +130,18 @@ function ManageStore() {
                 <FloatingLabel variant="outlined" label="店舗名" value={store_name} onChange={e => setStoreName(e.target.value)} />
                 <FloatingLabel variant="outlined" label="URLの名前" value={store_url_name} onChange={e => setStoreURLName(e.target.value)} />
                 <FloatingLabel className="w-72" variant="outlined" label="店舗Googleビジネスurl" value={store_business_url} onChange={e => setStoreBusinessURL(e.target.value)} />
-                <FloatingLabel className="w-72" variant="outlined" label="調査調査url" value={(store_name !== "" && store_business_url !== "") ? `${config.server_url}/questionnaire?name=${store_url_name}` : ""} readOnly />
-                <Button type="button" onClick={() => { dispatch(createOrUpdate({ store_id: -1, store_name, store_url_name, store_business_url })) }}>登録</Button>
+                <Select onChange={(e) => { setGroup_id(e.target.value) }} className=" h-14 rounded border-gray-500">
+                  <option value=""></option>
+                  {group_ids.map((item, idx) => (
+                    <option key={idx} value={item.id}>{item.id}</option>
+                  ))}
+                </Select>
+                <Button className="-mt-2" type="button" onClick={() => { dispatch(createOrUpdate({ store_id: -1, store_name, store_url_name, store_business_url, group_id })) }}>登録</Button>
               </div>
             </div>
-            <div className="overflow-x-auto   rounded-none">
+            <div className="overflow-x-auto w-full  rounded-none">
 
-              <table className="mt-2 ml-5 border-collapse	">
+              <table className="mt-2 ml-5 border-collapse	w-11/12">
                 <thead>
                   <tr className="border border-slate-300 border-l-0 border-r-0">
                     <th className="text-sm px-1 py-4">ID</th>
@@ -140,7 +159,7 @@ function ManageStore() {
                         <td className="px-2 py-3 text-sm " colSpan={10}>{lang("japan", "no_data")}</td>
                       </tr>
                       : store.map(item => (
-                        <tr key={item.id} className="border  cursor-pointer border-slate-300 border-l-0 border-r-0">
+                        <tr key={item.id} className="border  border-slate-300 border-l-0 border-r-0">
                           <td className="px-2 py-2 text-sm ">{item.id}</td>
                           <td className="px-2 py-2 text-sm">{item.store_name}</td>
                           <td className="px-2 py-2 text-sm break-all">{item.store_url_name}</td>
@@ -149,12 +168,12 @@ function ManageStore() {
                           </td>
                           <td className="px-2 py-2 text-sm">{item.questionnare_url}</td>
                           <td className="px-2 py-2 text-sm flex flex-row">
-                            <a href="#" onClick={() => edit(item.id, item.store_name, item.store_url_name, item.store_business_url)} className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                            <BsPencilSquare />
+                            <a href="#" onClick={() => edit(item.id, item.store_name, item.store_url_name, item.store_business_url, item.store_group_id)} className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                              <BsPencilSquare />
 
                             </a>
                             <a href="#" onClick={() => dispatch(deleteStore({ store_id: item.id }))} className="ml-3 font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                            <BsTrash />
+                              <BsTrash />
                             </a>
                             {/* <a target="_blank" href={item.questionnare_url} className="ml-3 font-medium text-cyan-600 hover:underline dark:text-cyan-500">
                               Run
@@ -178,24 +197,33 @@ function ManageStore() {
             <div className="space-y-6 flex flex-col">
               <div className="">
                 <label htmlFor="">ID</label>
-                <TextInput value={edit_store_id} disabled onChange={ e => { setEditStoreId(e.target.value) } }/>
+                <TextInput value={edit_store_id} disabled onChange={e => { setEditStoreId(e.target.value) }} />
               </div>
               <div className="">
                 <label htmlFor="">店舗名</label>
-                <TextInput value={edit_store_name} onChange={ e => { setEditStoreName(e.target.value) } }/>
+                <TextInput value={edit_store_name} onChange={e => { setEditStoreName(e.target.value) }} />
               </div>
               <div className="">
                 <label htmlFor="">URLの名前</label>
-                <TextInput value={edit_store_url_name} onChange={ e => { setEditStoreURLName(e.target.value) } }/>
+                <TextInput value={edit_store_url_name} onChange={e => { setEditStoreURLName(e.target.value) }} />
+              </div>
+              <div className="">
+                <label htmlFor="">アンケートペッジグループID</label>
+                <Select value={edit_group_id} onChange={(e) => { setEdit_Group_id(e.target.value) }} className=" h-14 rounded border-gray-500">
+                  <option value=""></option>
+                  {group_ids.map((item, idx) => (
+                    <option key={idx} value={item.id}>{item.id}</option>
+                  ))}
+                </Select>
               </div>
               <div className="">
                 <label htmlFor="">店舗Googleビジネスurl</label>
-                <TextInput value={edit_store_business_url} onChange={ e => { setEditStoreBusinessURL(e.target.value) } }/>
+                <TextInput value={edit_store_business_url} onChange={e => { setEditStoreBusinessURL(e.target.value) }} />
               </div>
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={() => { dispatch(createOrUpdate({ store_id: edit_store_id, store_name: edit_store_name, store_url_name: edit_store_url_name, store_business_url: edit_store_business_url })) }}>更新</Button>
+            <Button onClick={() => { dispatch(createOrUpdate({ store_id: edit_store_id, store_group_id: edit_group_id, store_name: edit_store_name, store_url_name: edit_store_url_name, store_business_url: edit_store_business_url })) }}>更新</Button>
             <Button color="gray" onClick={() => setEditStoreId("-1")}>
               取り消し
             </Button>

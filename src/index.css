@@ -136,3 +136,9 @@ div.text-3xl.width-50-rem{
   max-width: 1600px;
   width: 1600px !important;
 }
+.c-brand{
+  color: rgb(14 116 144 / var(--tw-bg-opacity)) !important;
+}
+a.pagenatione-active {
+  background-color: rgb(14 116 144 / var(--tw-bg-opacity)) !important;
+}

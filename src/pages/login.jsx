@@ -18,26 +18,24 @@ function Login() {
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        // inputRef.current.focus();
+        if (user) {
+            navigate('/managestore', { replace: true });
+        }
     }, [])
     useEffect(() => {
         if (user) {
             navigate('/managestore', { replace: true });
         }
     }, [user]);
-    useEffect(() => {
-        setTimeout(() => {
-            dispatch(resetError());
-        }, 3000);
-    }, [error])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         dispatch(resetError());
+    //     }, 3000);
+    // }, [error])
 
     const submitForm = async (e) => {
-        try {
-            e.preventDefault();
-            dispatch(signin({ username, password }))
-        } catch (error) {
-            console.log(error)
-        }
+        e.preventDefault();
+        dispatch(signin({ username, password }))
     }
 
     return (
